@@ -15,14 +15,15 @@ T = np.zeros((Lx, Ly))  # température initiale
 
 # Création de la figure
 fig, ax = plt.subplots()
-cax = ax.imshow(T, origin='lower', cmap='hot',interpolation='gaussian') # Pourquoi l'interpolation gaussien est bonne ?
+cax = ax.imshow(T, origin='lower', cmap='hot',interpolation='gaussian') # interpolation gaussien me donne les meilleurs résultat mais 
+# je ne sais pas pourquoi 
 cbar = fig.colorbar(cax, label='Température')
 txt = plt.text(5, 5, f'Temps = 0.00s', color='white')
 
 def update(num):
     global T, source_x
     # Mettre à jour le point de chaleur
-    T[source_x, source_y] = 1000
+    T[source_x, source_y] = 50
 
     # Diffusion thermique
     for step in range(5):  # Mettre à jour 10 fois pour une meilleure animation
